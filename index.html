@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="assets/css/output.css">
+    <link rel="stylesheet" href="assets/icon/css/fontello.css">
+</head>
+
+<body>
+    <main class="w-full h-auto lg:h-[100vh] flex justify-center bg-main overflow-hidden cursor-default font-Hedvig">
+        <section class="w-full  2xl:container flex flex-wrap">
+            <div class="w-full lg:w-[35%] flex justify-end pt-0 lg:pt-6 pb-6">
+                <div class="location_description w-full lg:w-[85%] h-full bg-white rounded-[20px]">
+                    <div class="w-[80%] mx-auto flex items-end pt-4 relative">
+                        <input class="inp_location w-full h-[30px] bg-main rounded-[30px] pl-[40px] outline-none"
+                            type="text">
+                        <i
+                            class="demo-icon icon-location-1 absolute left-0 bottom-0 px-1 text-[17px] h-[30px] rounded-[50%]  flex items-center text-[#C6C6C6]"></i>
+                        <i onclick="get_city()"
+                            class="demo-icon icon-search absolute right-0 bottom-0 px-1 text-[17px] h-[30px] rounded-[50%] text-[#C6C6C6] hover:bg-[#e5e6e9] flex items-center"></i>
+                    </div>
+                    <figure class="w-full flex flex-wrap justify-center pt-5">
+                        <img class="img_description w-[200px] h-[200px]" src="assets/img/Group 17.png" alt="">
+                        <span class="w-full text-[50px] flex justify-center p-3 "><span
+                                class="degree"></span><span>°C</span></span>
+                    </figure>
+                    <div class="w-full flex flex-wrap justify-center">
+                        <div class="w-[80%] flex ">
+                            <span class="location w-[40%] h-full flex border-b-4 border-[#F3F4F6] pb-2"></span>
+                            <span class="date w-[60%] h-full flex justify-end border-b-4 border-[#F3F4F6] pb-2"></span>
+                        </div>
+                        <div class="w-[80%] flex flex-wrap">
+                            <div class="w-full p-2 px-0">
+                                <i class="demo-icon icon-cloud pr-2"></i>
+                                <span>Patchy <span class="description"></span> Day</span>
+                            </div>
+                            <div class="w-full flex flex-wrap p-2 px-0">
+                                <i class="demo-icon icon-clock pr-2"></i>
+                                <span class="time pl-1"><span class="hours"></span> : <span
+                                        class="minutes"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 class="w-full flex justify-center text-[20px] pt-[20px] pb-[10px]">Developed By Hossein Deyri<a
+                            href="https://github.com/hossein-deyri"><i
+                                class="demo-icon icon-github-circled text-[20px]"></i></a></h1>
+                </div>
+            </div>
+            <div class="w-full lg:w-[65%]">
+                <div class="w-[100%] lg:w-[90%] pt-2  h-[50px] flex justify-center lg:justify-end items-center">
+                    <span
+                        class="w-8 h-6 flex justify-center items-center rounded-full bg-black text-white mr-2 cursor-pointer">°C</span>
+                    <span
+                        class="Fahrenheit w-8 h-6 flex justify-center items-center rounded-full mr-2 bg-white cursor-pointer">°F</span>
+                    <span data-status="off"
+                        class="dark_mode w-8 h-6 flex justify-center items-center rounded-full mr-2 cursor-pointer">
+                        <i class="demo-icon icon-moon"></i>
+                        <i class="demo-icon icon-sun  hidden"></i>
+                    </span>
+                    <span data-setting="off"
+                        class="setting w-8 h-6 flex justify-center items-center rounded-full mr-2 cursor-pointer relative z-10">
+                        <i class="demo-icon icon-cog"></i>
+                        <div
+                            class="setting_part hidden flex-wrap absolute top-6 right-[-35px] rounded-[5px] overflow-hidden p-2 bg-white">
+                            <a class="w-full text-[14px] bg-white overflow-hidden hover:bg-main  flex items-center rounded-[7px] p-1"
+                                href=""><i class="demo-icon icon-user p-1"></i>Profile</a>
+                            <a class="w-full text-[14px] bg-white overflow-hidden hover:bg-main  flex items-center rounded-[7px] p-1"
+                                href=""><i class="demo-icon icon-code p-1"></i>Api</a>
+                        </div>
+                    </span>
+                </div>
+                <h2 class="w-full text-[25px] pl-[10px] pt-[25px]">Whethersa</h2>
+                <div class="w-[100%] lg:w-[90%] p-6 lg:p-0 flex flex-wrap justify-evenly pt-[20px]">
+                    <div
+                        class="other_location w-[110px] h-[140px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4 mr-1 ml-1">
+                        <span class="w-full flex justify-center items-end text-[15px] pt-1">London</span>
+                        <img class="img_london w-[70px] h-[70px] flex justify-center" src="" alt="">
+                        <span class="w-full flex justify-center items-start text-[15px] pb-1"><span
+                                class="degree_london"></span><span>°C</span></span>
+                    </div>
+                    <div
+                        class="other_location w-[110px] h-[140px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4 mr-1 ml-1">
+                        <span class="w-full flex justify-center items-end text-[15px] pt-1">Moscow</span>
+                        <img class="img_moscow w-[70px] h-[70px] flex justify-center" src="" alt="">
+                        <span class="w-full flex justify-center items-start text-[15px] pb-1"><span
+                                class="degree_moscow"></span><span>°C</span></span>
+                    </div>
+                    <div
+                        class="other_location w-[110px] h-[140px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4 mr-1 ml-1">
+                        <span class="w-full flex justify-center items-end text-[15px] pt-1">New York</span>
+                        <img class="img_newyork w-[70px] h-[70px] flex justify-center" src="" alt="">
+                        <span class="w-full flex justify-center items-start text-[15px] pb-1"><span
+                                class="degree_newyork"></span><span>°C</span></span>
+                    </div>
+                    <div
+                        class="other_location w-[110px] h-[140px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4 mr-1 ml-1">
+                        <span class="w-full flex justify-center items-end text-[15px] pt-1">Tokyo</span>
+                        <img class="img_tokyo w-[70px] h-[70px] flex justify-center" src="" alt="">
+                        <span class="w-full flex justify-center items-start text-[15px] pb-1"><span
+                                class="degree_tokyo"></span><span>°C</span></span>
+                    </div>
+                    <div
+                        class="other_location w-[110px] h-[140px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4 mr-1 ml-1">
+                        <span class="w-full flex justify-center items-end text-[15px] pt-1">Bern</span>
+                        <img class="img_bern w-[70px] h-[70px] flex justify-center" src="" alt="">
+                        <span class="w-full flex justify-center items-start text-[15px] pb-1"><span
+                                class="degree_bern"></span><span>°C</span></span>
+                    </div>
+                </div>
+                <h2 class=" w-full text-[25px] pl-[10px] pt-[50px]">Today's Highlights</h2>
+                <div class="w-[100%] lg:w-[90%] p-5 lg:p-0 flex flex-wrap justify-evenly pt-[20px]">
+                    <div
+                        class="highlights w-[150px] h-[180px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4">
+                        <span class="w-full flex justify-center items-center text-[15px]">Humidity</span>
+                        <img class="w-[70px] h-[70px] flex justify-center " src="assets/img/humidity.png" alt="">
+                        <span class="humidity w-full flex justify-center items-start text-[15px]"></span>
+                    </div>
+                    <div
+                        class="highlights w-[150px] h-[180px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4">
+                        <span class="w-full flex justify-center items-center text-[15px]">Wind</span>
+                        <img class="w-[70px] h-[70px] flex justify-center" src="assets/img/wind (2).png" alt="">
+                        <span class="wind w-full flex justify-center items-start text-[15px]"></span>
+                    </div>
+                    <div
+                        class="highlights w-[150px] h-[180px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4">
+                        <span class="w-full flex justify-center items-center text-[15px]">Pressure</span>
+                        <img class="w-[70px] h-[70px] flex justify-center " src="assets/img/pressure.png" alt="">
+                        <span class="pressure w-full flex justify-center items-start text-[15px]"></span>
+                    </div>
+                    <div
+                        class="highlights w-[150px] h-[180px] rounded-[10px] mt-[25px] flex flex-wrap justify-center bg-white transition-all hover:translate-y-4">
+                        <span class="w-full flex justify-center items-center text-[15px] pt-1">Thermometer</span>
+                        <img class="w-[65px] h-[65px] flex flex-wrap justify-center" src="assets/img/thermometer.png"
+                            alt="">
+                        <div class="w-full  flex flex-wrap">
+                            <span class="thermometer w-[50%] flex justify-center items-start text-[15px]">Min</span>
+                            <span class="thermometer w-[50%] flex justify-center items-start text-[15px]">Max</span>
+                            <span
+                                class="temp_min thermometer w-[50%] flex justify-center items-start text-[15px]"></span>
+                            <span
+                                class="temp_max thermometer w-[50%] flex justify-center items-start text-[15px]"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+<script src="assets/js/master.js"></script>
+
+</html>
+
+<!-- npx tailwindcss -i ./src/assets/css/master.css -o ./dist/output.css --watch -->
