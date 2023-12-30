@@ -7,7 +7,7 @@
 
 - Created - 2023-12-02
 
-- Technologies Used - Html5, TailWind, JavaScript
+- Technologies Used - Html, TailWind, JavaScript
 
 - Role - Frontend
 
